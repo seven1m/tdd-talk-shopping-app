@@ -1,0 +1,7 @@
+<% @products.each do |product| %>
+  <p>
+    <strong><%= product.name %></strong> $<%= '%.02f' % product.cost %><br>
+    <%= product.description %><br>
+    <%= link_to 'add to cart', product_selections_path(product), data: { method: 'post' } %>
+  </p>
+<% end %>
