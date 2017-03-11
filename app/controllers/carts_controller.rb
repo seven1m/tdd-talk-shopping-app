@@ -1,7 +1,7 @@
 class CartsController < ApplicationController
   def show
     @cart = current_cart
-    @selections = @cart.selections.includes(:product)
+    @selections = @cart.selections.includes(:product).references(:product).order('products.name')
   end
 
   def destroy
