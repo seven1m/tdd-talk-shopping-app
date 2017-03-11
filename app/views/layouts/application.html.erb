@@ -9,14 +9,16 @@
   </head>
 
   <body>
-    <nav>
-      <%= link_to 'products', products_path %>
-      &middot;
-      <%= link_to 'cart', cart_path %>
-    </nav>
+    <div class="col-sm-6 col-sm-offset-3">
+      <nav>
+        <%= link_to 'products', products_path %>
+        &middot;
+        <%= link_to 'cart', cart_path %>
+      </nav>
 
-    <main>
-      <%= yield %>
-    </main>
+      <main>
+        <%= yield %>
+      </main>
+    </div>
   </body>
 </html>
