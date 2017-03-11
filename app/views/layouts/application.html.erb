@@ -14,7 +14,23 @@
         <%= link_to 'products', products_path %>
         &middot;
         <%= link_to 'cart', cart_path %>
+        &middot;
+        <% if current_user %>
+          <%= link_to current_user.email, edit_user_path(current_user.id) %>
+          <% if current_user.admin? %>(admin)<% end %>
+          &middot;
+          <%= link_to 'sign out', session_path, data: { method: :delete } %>
+        <% else %>
+          <%= link_to 'sign up', new_user_path %>
+          &middot;
+          <%= link_to 'sign in', new_session_path %>
+        <% end %>
       </nav>
+
+      <% flash.each do |type, message| %>
+        <% type = { 'notice' => 'success', 'error' => 'danger' }[type] || type %>
+        <div class="push-down alert alert-<%= type %>" role="alert"><%= message %></div>
+      <% end %>
 
       <main>
         <%= yield %>

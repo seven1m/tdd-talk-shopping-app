@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170311040254) do
+ActiveRecord::Schema.define(version: 20170311153828) do
 
   create_table "carts", force: :cascade do |t|
     t.string   "random_id",  limit: 100
@@ -33,6 +33,16 @@ ActiveRecord::Schema.define(version: 20170311040254) do
     t.datetime "updated_at", null: false
     t.index ["cart_id"], name: "index_selections_on_cart_id"
     t.index ["product_id"], name: "index_selections_on_product_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                            null: false
+    t.string   "crypted_password"
+    t.string   "salt"
+    t.boolean  "admin",            default: false, null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
 end

@@ -14,3 +14,11 @@
  *= require_self
  *= require bootstrap.min
  */
+
+a:visited {
+  color: #337ab7;
+}
+
+.push-down {
+  margin-top: 25px;
+}

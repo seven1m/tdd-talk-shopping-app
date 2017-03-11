@@ -6,6 +6,7 @@ gem 'jbuilder'
 gem 'jquery-rails'
 gem 'puma'
 gem 'sass-rails'
+gem 'sorcery'
 gem 'sqlite3'
 gem 'turbolinks'
 
