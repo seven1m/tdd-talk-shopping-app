@@ -1,10 +1,5 @@
 <h1>Products</h1>
 
 <% @products.each do |product| %>
-  <aside class="pull-right">$<%= '%.02f' % product.cost %></aside>
-  <p>
-    <strong><%= product.name %></strong><br>
-    <%= product.description %><br>
-    <%= link_to 'add to cart', product_selections_path(product), data: { method: 'post' } %>
-  </p>
+  <%= render product, add_to_cart: true %>
 <% end %>

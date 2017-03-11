@@ -1,0 +1,7 @@
+<h1>Order</h1>
+
+<% @selections.each do |selection| %>
+  <%= render selection.product %>
+<% end %>
+
+<%= render 'form' %>

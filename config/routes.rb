@@ -9,5 +9,7 @@ Rails.application.routes.draw do
     resources :selections
   end
 
+  resources :orders
+
   root to: 'products#index'
 end

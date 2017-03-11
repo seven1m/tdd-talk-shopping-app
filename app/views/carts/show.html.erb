@@ -1,16 +1,19 @@
 <h1>My Cart</h1>
 
 <% @selections.each do |selection| %>
-  <p>
-    <strong><%= selection.product.name %></strong> $<%= '%.02f' % selection.product.cost %><br>
-    <%= selection.product.description %>
-  </p>
+  <%= render selection.product, remove_from_cart: true %>
 <% end %>
 
 <% if @selections.empty? %>
   <p><em>empty</em></p>
 <% end %>
 
-<p>
-  <%= link_to 'empty', cart_path, data: { method: 'delete' } %>
-</p>
+<% if @selections.any? %>
+  <aside class="pull-right">
+    <%= link_to 'check out', new_order_path, class: 'btn btn-success' %>
+  </aside>
+
+  <p>
+    <%= link_to 'empty', cart_path, class: 'btn btn-danger', data: { method: 'delete' } %>
+  </p>
+<% end %>

@@ -1,0 +1,15 @@
+<div>
+  <aside class="pull-right">$<%= '%.02f' % product.cost %></aside>
+  <p>
+    <strong><%= product.name %></strong><br>
+    <%= product.description %>
+    <% if defined?(add_to_cart) && add_to_cart %>
+      <br>
+      <%= link_to 'add to cart', product_selections_path(product), data: { method: 'post' } %>
+    <% end %>
+    <% if defined?(remove_from_cart) && remove_from_cart %>
+      <br>
+      <%= link_to 'remove from cart', product_selection_path(product, :ignore), data: { method: 'delete' } %>
+    <% end %>
+  </p>
+</div>
