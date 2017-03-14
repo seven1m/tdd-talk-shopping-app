@@ -1,0 +1,20 @@
+<h1>Order <%= @order.id %></h1>
+
+<dl>
+  <dt>User</dt>
+  <dd><%= @order.user.email %></dd>
+  <dt>Placed</dt>
+  <dd><%= @order.created_at %></dd>
+  <dt>Address</dt>
+  <dd>
+    <%= @order.address1 %><br>
+    <% if @order.address2.present? %><%= @order.address2 %><br><% end %>
+    <%= @order.city %>, <%= @order.state %> <%= @order.zip %>
+  </dd>
+</dl>
+
+<h2>Products</h2>
+
+<% @selections.each do |selection| %>
+  <%= render selection.product %>
+<% end %>
