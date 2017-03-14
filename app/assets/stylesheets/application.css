@@ -15,14 +15,6 @@
  *= require bootstrap.min
  */
 
-a:visited {
-  color: #337ab7;
-}
-
-.btn, .btn:visited {
-  color: #fff;
-}
-
 .push-down {
   margin-top: 25px;
 }

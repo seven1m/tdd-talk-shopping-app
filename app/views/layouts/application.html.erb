@@ -28,7 +28,7 @@
       </nav>
 
       <% flash.each do |type, message| %>
-        <% type = { 'notice' => 'success', 'error' => 'danger' }[type] || type %>
+        <% type = { 'notice' => 'success', 'error' => 'danger', 'alert' => 'danger' }[type] || type %>
         <div class="push-down alert alert-<%= type %>" role="alert"><%= message %></div>
       <% end %>
 
