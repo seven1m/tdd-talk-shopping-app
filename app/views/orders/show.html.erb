@@ -3,8 +3,10 @@
 <dl>
   <dt>User</dt>
   <dd><%= @order.user.email %></dd>
-  <dt>Placed</dt>
-  <dd><%= @order.created_at %></dd>
+  <% if @order.complete? %>
+    <dt>Placed</dt>
+    <dd><%= @order.created_at %></dd>
+  <% end %>
   <dt>Address</dt>
   <dd>
     <%= @order.address1 %><br>
@@ -13,8 +15,31 @@
   </dd>
 </dl>
 
-<h2>Products</h2>
+<table class="table">
+  <tbody>
+    <% @selections.each do |selection| %>
+      <tr>
+        <td><%= link_to selection.product.name, selection.product %></td>
+        <td class="text-right">$<%= '%0.02f' % selection.product.cost %></td>
+      </tr>
+    <% end %>
+    <tr>
+      <td>Tax</th>
+      <td class="text-right">$<%= '%0.02f' % @order.tax %></td>
+    </tr>
+    <tr>
+      <td>Shipping</th>
+      <td class="text-right">$<%= '%0.02f' % @order.shipping %></td>
+    </tr>
+    <tr>
+      <td>Total</th>
+      <td class="text-right">$<%= '%0.02f' % @order.total %></td>
+    </tr>
+  </tbody>
+</table>
 
-<% @selections.each do |selection| %>
-  <%= render selection.product %>
+<% if @order.pending? %>
+  <%= form_for @order do |form| %>
+    <%= button_tag 'Place Order', value: 'place', class: 'btn btn-success' %>
+  <% end %>
 <% end %>
