@@ -66,11 +66,17 @@ class Order < ApplicationRecord
   )
 
   def shipping
-    if TULSA_ZIPS.include?(zip)
+    if po_box?
+      cart.products.count * 2
+    elsif TULSA_ZIPS.include?(zip)
       0
     else
       cart.products.count
     end
+  end
+
+  def po_box?
+    address1 =~ /p\.?\s*o\.?\s+box/
   end
 
   def total
