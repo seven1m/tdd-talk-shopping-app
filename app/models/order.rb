@@ -7,7 +7,7 @@ class Order < ApplicationRecord
   enum status: %w(pending complete)
 
   def tax
-    BigDecimal.new('1.00')
+    TaxCalculatorService.new(self).call
   end
 
   TULSA_ZIPS = %w(
