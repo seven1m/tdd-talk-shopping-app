@@ -71,3 +71,13 @@ it's big enough to demonstrate some common pitfalls of programming without tests
    can save your bacon.
 
 3. Last, we'll show how TDD can catch even more bugs and make you into a hero.
+
+### Branches
+
+* 1 - Add free shipping to Tulsa
+* 2 - Higher shipping to PO boxes
+* 3 - Look up tax rate by location
+* 4 - Return actual tax amount based on total
+* 5 - Oops, only use product total
+* 6 - Calculate shipping by weight
+* 7 - Include shipping in taxable amount in some states
