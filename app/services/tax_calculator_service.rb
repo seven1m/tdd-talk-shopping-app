@@ -4,7 +4,7 @@ class TaxCalculatorService
   end
 
   def call
-    taxjar.rates_for_location(@order.zip).combined_rate * @order.total / 100
+    taxjar.rates_for_location(@order.zip).combined_rate * @order.product_total / 100
   end
 
   private

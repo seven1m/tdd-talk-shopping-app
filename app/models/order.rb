@@ -82,4 +82,8 @@ class Order < ApplicationRecord
   def total
     cart.products.sum(:cost) + tax + shipping
   end
+
+  def product_total
+    cart.products.sum(:cost)
+  end
 end
