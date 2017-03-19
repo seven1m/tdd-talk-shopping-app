@@ -65,14 +65,20 @@ class Order < ApplicationRecord
     74193
   )
 
+  SHIPPING_RATE_PER_POUND = 1
+
   def shipping
     if po_box?
-      cart.products.count * 2
+      base_shipping * 2
     elsif TULSA_ZIPS.include?(zip)
       0
     else
-      cart.products.count
+      base_shipping
     end
+  end
+
+  def base_shipping
+    BigDecimal.new(cart.products.pluck(:weight).map { |w| w / 16.0 * SHIPPING_RATE_PER_POUND }.sum, 10).round(2)
   end
 
   def po_box?

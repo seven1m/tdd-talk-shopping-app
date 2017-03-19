@@ -19,7 +19,7 @@
   <tbody>
     <% @selections.each do |selection| %>
       <tr>
-        <td><%= link_to selection.product.name, selection.product %></td>
+        <td><%= link_to selection.product.name, selection.product %> <%= selection.product.weight %></td>
         <td class="text-right">$<%= '%0.02f' % selection.product.cost %></td>
       </tr>
     <% end %>
