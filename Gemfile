@@ -9,6 +9,7 @@ gem 'sass-rails'
 gem 'sorcery'
 gem 'sqlite3'
 gem 'turbolinks'
+gem 'taxjar-ruby', require: 'taxjar'
 
 group :development do
   gem 'listen'
@@ -23,4 +24,5 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rspec-rails'
   gem 'spring-commands-rspec'
+  gem 'dotenv-rails'
 end

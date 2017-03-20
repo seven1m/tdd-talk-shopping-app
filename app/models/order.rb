@@ -7,7 +7,7 @@ class Order < ApplicationRecord
   enum status: %w(pending complete)
 
   def tax
-    BigDecimal.new('1.00')
+    TaxCalculatorService.new(self).call
   end
 
   FREE_ZIPS = %w(
@@ -76,7 +76,11 @@ class Order < ApplicationRecord
   end
 
   def total
-    cart.products.sum(:cost) + tax + shipping
+    product_total + tax + shipping
+  end
+
+  def product_total
+    cart.products.sum(:cost)
   end
 
   private

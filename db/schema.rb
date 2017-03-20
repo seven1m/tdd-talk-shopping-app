@@ -10,23 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170314033716) do
+ActiveRecord::Schema.define(version: 20170311225731) do
 
   create_table "carts", force: :cascade do |t|
     t.string   "random_id",  limit: 100
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
-  end
-
-  create_table "order_lines", force: :cascade do |t|
-    t.integer  "order_id"
-    t.string   "kind",        null: false
-    t.string   "description", null: false
-    t.decimal  "amount",      null: false
-    t.integer  "ordering",    null: false
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["order_id"], name: "index_order_lines_on_order_id"
   end
 
   create_table "orders", force: :cascade do |t|

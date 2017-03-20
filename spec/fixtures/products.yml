@@ -1,9 +1,7 @@
 pants:
   name: Pants
   cost: 50
-  weight: 32
 
 shirt:
   name: Shirt
   cost: 25
-  weight: 16

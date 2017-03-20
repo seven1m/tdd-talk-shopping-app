@@ -40,4 +40,26 @@ describe Order do
       end
     end
   end
+
+  describe '#tax' do
+    context 'when the destination is Bixby' do
+      before do
+        subject.zip = '74008'
+      end
+
+      it 'returns FIXME times the product total' do
+        expect(subject.tax).to eq(7.39)
+      end
+    end
+
+    context 'when the destination is New York City' do
+      before do
+        subject.zip = '10001'
+      end
+
+      it 'returns FIXME times the product total' do
+        expect(subject.tax).to eq(6.66)
+      end
+    end
+  end
 end
