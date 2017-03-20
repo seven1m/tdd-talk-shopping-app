@@ -29,7 +29,13 @@
     </tr>
     <tr>
       <td>Shipping</th>
-      <td class="text-right">$<%= '%0.02f' % @order.shipping %></td>
+      <td class="text-right">
+        <% if @order.shipping.zero? %>
+          <strong>free!</strong>
+        <% else %>
+          $<%= '%0.02f' % @order.shipping %>
+        <% end %>
+      </td>
     </tr>
     <tr>
       <td>Total</th>

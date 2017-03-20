@@ -21,4 +21,6 @@ group :development, :test do
   gem 'byebug'
   gem 'faker'
   gem 'pry-rails'
+  gem 'rspec-rails'
+  gem 'spring-commands-rspec'
 end
