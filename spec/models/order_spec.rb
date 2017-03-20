@@ -17,5 +17,27 @@ describe Order do
         expect(subject.shipping).to eq(0)
       end
     end
+
+    context 'when the destination is a PO box' do
+      context 'proper case and periods' do
+        before do
+          subject.address1 = 'P.O. Box 123'
+        end
+
+        it 'returns double' do
+          expect(subject.shipping).to eq(4)
+        end
+      end
+
+      context 'lower case with no periods' do
+        before do
+          subject.address1 = 'po box 123'
+        end
+
+        it 'returns double' do
+          expect(subject.shipping).to eq(4)
+        end
+      end
+    end
   end
 end

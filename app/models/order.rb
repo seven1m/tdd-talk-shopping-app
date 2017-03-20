@@ -66,14 +66,26 @@ class Order < ApplicationRecord
   )
 
   def shipping
-    if FREE_ZIPS.include?(zip)
+    if po_box?
+      base_shipping * 2
+    elsif FREE_ZIPS.include?(zip)
       0
     else
-      BigDecimal.new(cart.products.count)
+      base_shipping
     end
   end
 
   def total
     cart.products.sum(:cost) + tax + shipping
+  end
+
+  private
+
+  def po_box?
+    address1 =~ /P\.?O\.? Box/i
+  end
+
+  def base_shipping
+    BigDecimal.new(cart.products.count)
   end
 end
