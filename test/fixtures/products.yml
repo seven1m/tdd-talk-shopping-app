@@ -1,9 +1,9 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+pants:
+  name: Pants
+  weight: 32
+  cost: 50
 
-one:
-  name: MyString
-  description: MyString
-
-two:
-  name: MyString
-  description: MyString
+shirt:
+  name: Shirt
+  weight: 16
+  cost: 25

@@ -82,7 +82,7 @@ class Order < ApplicationRecord
   end
 
   def po_box?
-    address1 =~ /p\.?\s*o\.?\s+box/
+    address1 =~ /p\.?\s*o\.?\s+box/i
   end
 
   def total

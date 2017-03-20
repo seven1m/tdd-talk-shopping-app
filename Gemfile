@@ -23,4 +23,5 @@ group :development, :test do
   gem 'faker'
   gem 'pry-rails'
   gem 'dotenv-rails'
+  gem 'minitest-color'
 end

@@ -1,0 +1,7 @@
+pants_in_cart_one:
+  cart: one
+  product: pants
+
+shirt_in_cart_one:
+  cart: one
+  product: shirt

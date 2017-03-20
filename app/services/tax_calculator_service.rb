@@ -4,7 +4,7 @@ class TaxCalculatorService
   end
 
   def call
-    taxjar.rates_for_location(@order.zip).combined_rate * taxable_amount / 100
+    BigDecimal.new(taxjar.rates_for_location(@order.zip).combined_rate * taxable_amount, 10).round(2)
   end
 
   private
