@@ -72,12 +72,25 @@ it's big enough to demonstrate some common pitfalls of programming without tests
 
 3. Last, we'll show how TDD can catch even more bugs and make you into a hero.
 
-### Branches
+### Tools
 
-* 1 - Add free shipping to Tulsa
-* 2 - Higher shipping to PO boxes
-* 3 - Look up tax rate by location
-* 4 - Return actual tax amount based on total
-* 5 - Oops, only use product total
-* 6 - Calculate shipping by weight
-* 7 - Include shipping in taxable amount in some states
+* Rspec
+* Observr / Guard
+* Webmock
+* CircleCI / Travis CI
+
+### Testing Techniques
+
+* **Going on the offensive**
+
+  Learn to think offensively when you're writing tests, and then defensively when you're making them pass.
+
+* **Faking it**
+
+  When you are writing a test and you don't know exactly what a value should be, just write something ridiculous
+  at first. Once you write the code, the value will become clear and you can fix the test to make the test green.
+
+* **Puts**
+
+  The tight loop of a test (especially when focused) is an ideal place to use `puts` statements. The output is
+  available in the same window where your tests run, so it's easy to see what you need to see.
